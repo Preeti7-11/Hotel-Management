@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="section__container booking__form__container">
+    <h2>Confirm Your Booking</h2>
+    <form id="bookingForm">
+      <div class="input__group">
+        <label for="guestName">Guest Name</label>
+        <input type="text" id="guestName" placeholder="Enter your name" required />
+      </div>
+      <div class="input__group">
+        <label for="contactNumber">Contact Number</label>
+        <input type="text" id="contactNumber" placeholder="Enter your contact number" required />
+      </div>
+      <div class="input__group">
+        <label for="numOfGuests">Number of Guests</label>
+        <input type="number" id="numOfGuests" placeholder="Enter number of guests" required />
+      </div>
+      <div class="input__group">
+        <label for="checkInDate">Check-in Date</label>
+        <input type="date" id="checkInDate" required />
+      </div>
+      <div class="input__group">
+        <label for="checkOutDate">Check-out Date</label>
+        <input type="date" id="checkOutDate" required />
+      </div>
+      <div class="input__group input__btn">
+        <button type="submit" class="btn">Confirm Booking</button>
+      </div>
+    </form>
+  </section>
+
+  <script>
+    // JavaScript to handle form submission
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const guestName = document.getElementById('guestName').value;
+      const numOfGuests = document.getElementById('numOfGuests').value;
+
+      // Store the details in local storage
+      localStorage.setItem('guestName', guestName);
+      localStorage.setItem('numOfGuests', numOfGuests);
+
+      // Redirect to the confirmation page
+      window.location.href = 'confirmation.html';
+    });
+  </script>
+</body>
+</html>

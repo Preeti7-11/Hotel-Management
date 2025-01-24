@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Confirmation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="section__container confirmation__container">
+    <h2>Booking Confirmation</h2>
+    <p id="guestDetails"></p>
+    <p id="roomDetails"></p>
+  </section>
+
+  <script>
+    // Get the stored booking details from local storage
+    const guestName = localStorage.getItem('guestName');
+    const numOfGuests = localStorage.getItem('numOfGuests');
+
+    // Determine the room type and cost based on the number of guests
+    let roomType = '';
+    let roomCost = '';
+
+    if (numOfGuests == 2) {
+      roomType = 'Executive Cityscape Room';
+      roomCost = 'Rs.2500/night';
+    } else if (numOfGuests == 3) {
+      roomType = 'Family Garden Retreat';
+      roomCost = 'RS.1800/night';
+    } else {
+      roomType = 'Deluxe Ocean View';
+      roomCost = 'RS.3000/night';
+    }
+
+    // Display the booking details on the page
+    document.getElementById('guestDetails').innerHTML = `<strong>Guest Name:</strong> ${guestName}<br><strong>Number of Guests:</strong> ${numOfGuests}`;
+    document.getElementById('roomDetails').innerHTML = `<strong>Room Type:</strong> ${roomType}<br><strong>Cost:</strong> ${roomCost}`;
+  </script>
+</body>
+</html>
